@@ -1754,17 +1754,10 @@
       "filter": [
         "all",
         [
-          "in",
-          "class",
-          "school",
-          "university",
-          "kindergarten",
-          "college"
-        ],
-        [
           "==",
-          "$type",
-          "Point"
+          "class",
+          "college",
+          "school"
         ]
       ],
       "layout": {
