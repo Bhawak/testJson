@@ -1748,7 +1748,7 @@
       "source": "qvez6ula1",
       "source-layer": "poi",
       "type": "symbol",
-      "minzoom": 13
+      "minzoom": 15
     },
     {
       "filter": [
@@ -1757,8 +1757,6 @@
           "in",
           "class",
           "school",
-          "university",
-          "kindergarten",
           "college"
         ],
         [
