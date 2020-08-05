@@ -118,7 +118,7 @@
       "source": "qvez6ula1",
       "source-layer": "landuse",
       "type": "fill",
-      "minzoom": 14.5
+      "minzoom": 14
     },
     {
       "filter": [
@@ -1722,7 +1722,7 @@
             ]
           ]
         },
-        "icon-image": "college_11",
+        "icon-image": "{class}_11",
         "icon-ignore-placement": false,
         "icon-optional": false,
         "text-font": [
