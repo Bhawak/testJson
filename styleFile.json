@@ -739,22 +739,6 @@
       }
     },
     {
-      "id": "Waterway_lake_label",
-      "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "water_name",
-      "minzoom": 14,
-      "layout": {
-        "text-line-height": 1,
-        "visibility": "visible",
-        "text-max-width": 5,
-        "text-field": "{name:latin}{name:non-latin}",
-        "text-size": {"stops": [[14, 12], [18, 18]]},
-        "text-font": ["OpenSans"]
-      },
-      "paint": {"text-color": "rgba(18, 0, 255, 1)"}
-    },
-    {
       "id": "HighwayLabel-minor",
       "type": "symbol",
       "source": "qvez6ula1",
@@ -846,6 +830,22 @@
       }
     },
     {
+      "id": "Waterway_lake_label",
+      "type": "symbol",
+      "source": "qvez6ula1",
+      "source-layer": "water_name",
+      "minzoom": 14,
+      "layout": {
+        "text-line-height": 1,
+        "visibility": "visible",
+        "text-max-width": 5,
+        "text-field": "{name:latin}{name:non-latin}",
+        "text-size": {"stops": [[14, 12], [18, 18]]},
+        "text-font": ["OpenSans"]
+      },
+      "paint": {"text-color": "rgba(18, 0, 255, 1)"}
+    },
+    {
       "id": "EduactionLabel-label",
       "type": "symbol",
       "source": "qvez6ula1",
@@ -853,13 +853,13 @@
       "minzoom": 16,
       "filter": [
         "all",
-        ["in", "class", "university", "kindergarten"],
+        ["in", "class", "school", "university", "kindergarten", "college"],
         ["==", "$type", "Point"]
       ],
       "layout": {
         "icon-allow-overlap": false,
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": "{name:latin}{name:nonlatin}",
         "text-size": {"stops": [[16, 9], [17, 13]]},
         "symbol-placement": "point",
