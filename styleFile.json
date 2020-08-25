@@ -876,7 +876,7 @@
       "paint": {"text-color": "rgba(38, 63, 17, 1)", "text-halo-width": 0.3}
     },
     {
-      "id": "EduactionLabel-symbol",
+      "id": "EduactionLabel_icon",
       "type": "symbol",
       "source": "qvez6ula1",
       "source-layer": "poi",
