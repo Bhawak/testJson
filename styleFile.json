@@ -853,13 +853,12 @@
       "minzoom": 16,
       "filter": [
         "all",
-        ["in", "class", "school", "university", "kindergarten", "college"],
-        ["==", "$type", "Point"]
+        ["in", "class", "school", "university", "kindergarten", "college"]
       ],
       "layout": {
         "icon-allow-overlap": false,
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": "{name:latin}{name:nonlatin}",
         "text-size": {"stops": [[16, 9], [17, 13]]},
         "symbol-placement": "point",
@@ -894,7 +893,7 @@
         "text-anchor": "top",
         "icon-text-fit": "none",
         "icon-size": {"stops": [[15, 0.8], [17, 1]]},
-        "icon-image": "airport_15",
+        "icon-image": "college_11",
         "icon-ignore-placement": false,
         "icon-optional": false,
         "text-font": ["OpenSans"],
@@ -917,7 +916,7 @@
       "layout": {
         "icon-allow-overlap": false,
         "text-optional": false,
-        "visibility": "visible",
+        "visibility": "none",
         "text-field": "{name:latin}{name:nonlatin}",
         "text-size": {"stops": [[16, 11], [17, 13]]},
         "symbol-placement": "point",
