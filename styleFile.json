@@ -82,20 +82,10 @@
         "all",
         ["in", "class", "school", "university", "kindergarten", "college"]
       ],
-      "layout": {"visibility": "visible"},
       "paint": {
         "fill-color": "rgba(228, 217, 164, 1)",
         "fill-translate-anchor": "map"
       }
-    },
-    {
-      "id": "National park",
-      "type": "fill",
-      "source": "pp31tp74k",
-      "minzoom": 4,
-      "maxzoom": 20,
-      "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "rgba(115, 179, 104, 1)"}
     },
     {
       "id": "Airport-area",
@@ -136,6 +126,15 @@
         "line-width": {"stops": [[13, 2], [14, 3], [15, 4], [16, 6]]},
         "line-color": "rgba(239, 233, 225, 1)"
       }
+    },
+    {
+      "id": "National park",
+      "type": "fill",
+      "source": "pp31tp74k",
+      "minzoom": 4,
+      "maxzoom": 20,
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(115, 179, 104, 1)"}
     },
     {
       "id": "Landuse-farmland",
@@ -846,6 +845,33 @@
       "paint": {"text-color": "rgba(18, 0, 255, 1)"}
     },
     {
+      "id": "EduactionLabel-symbol",
+      "type": "symbol",
+      "source": "qvez6ula1",
+      "source-layer": "poi",
+      "minzoom": 15,
+      "filter": ["all", ["in", "class", "college", "school"]],
+      "layout": {
+        "icon-allow-overlap": false,
+        "text-line-height": 1,
+        "visibility": "visible",
+        "text-max-width": 7,
+        "text-field": {"stops": [[6, ""], [15, "{name:latin}{name:nonlatin}"]]},
+        "text-offset": [0, 0.6],
+        "text-size": {"stops": [[15, 10], [17, 15]]},
+        "text-anchor": "top",
+        "text-ignore-placement": true,
+        "icon-size": {"stops": [[15, 0.6], [17, 1]]},
+        "icon-image": "college_11",
+        "text-font": ["OpenSansRegular"]
+      },
+      "paint": {
+        "text-halo-blur": 0.6,
+        "text-color": "rgba(22, 12, 0, 1)",
+        "text-halo-width": 0.1
+      }
+    },
+    {
       "id": "EduactionLabel-label",
       "type": "symbol",
       "source": "qvez6ula1",
@@ -853,7 +879,8 @@
       "minzoom": 16,
       "filter": [
         "all",
-        ["in", "class", "school", "university", "kindergarten", "college"]
+        ["in", "class", "school", "university", "kindergarten", "college"],
+        ["==", "$type", "Point"]
       ],
       "layout": {
         "icon-allow-overlap": false,
@@ -873,38 +900,6 @@
         "text-ignore-placement": false
       },
       "paint": {"text-color": "rgba(38, 63, 17, 1)", "text-halo-width": 0.3}
-    },
-    {
-      "id": "EduactionLabel-symbol",
-      "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "poi",
-      "minzoom": 15,
-      "filter": ["all", ["in", "class", "college", "school"]],
-      "layout": {
-        "icon-rotation-alignment": "auto",
-        "icon-allow-overlap": true,
-        "text-line-height": 1,
-        "visibility": "visible",
-        "text-field": {
-          "stops": [[15, ""], [16, "{name:latin}{name:nonlatin}"]]
-        },
-        "text-size": {"stops": [[16, 9], [17, 13]]},
-        "text-anchor": "top",
-        "icon-text-fit": "none",
-        "icon-size": {"stops": [[15, 0.8], [17, 1]]},
-        "icon-image": "airport_15",
-        "icon-ignore-placement": false,
-        "icon-optional": false,
-        "text-font": ["OpenSans"],
-        "symbol-avoid-edges": true,
-        "text-max-width": 6,
-        "text-offset": [0, 0.6],
-        "icon-offset": [0, -2],
-        "symbol-z-order": "auto",
-        "icon-keep-upright": true
-      },
-      "paint": {"text-color": "rgba(22, 12, 0, 1)"}
     },
     {
       "id": "Health_icon-label",
@@ -1461,33 +1456,6 @@
       }
     },
     {
-      "id": "Airport_symbol",
-      "type": "symbol",
-      "source": "airport",
-      "minzoom": 9,
-      "maxzoom": 24,
-      "layout": {
-        "text-optional": true,
-        "text-line-height": 1,
-        "text-field": {"stops": [[6, ""], [12, "{name}"]]},
-        "text-anchor": "top",
-        "text-size": {"stops": [[13, 10], [17, 12]]},
-        "text-allow-overlap": true,
-        "icon-size": {"stops": [[6, 0.3], [16, 1]]},
-        "icon-image": "airport_15",
-        "text-font": ["OpenSansBold"],
-        "icon-padding": 50,
-        "text-max-width": 5,
-        "text-offset": [0, 1],
-        "text-padding": 0
-      },
-      "paint": {
-        "text-halo-color": "rgba(194, 194, 204, 1)",
-        "text-color": "rgba(182, 0, 183, 1)",
-        "text-halo-width": 0.5
-      }
-    },
-    {
       "id": "Places-neighbourhood",
       "type": "symbol",
       "source": "qvez6ula1",
@@ -1515,6 +1483,33 @@
         "text-halo-color": "rgba(255, 255, 255, 1)",
         "text-halo-blur": 0.5,
         "text-halo-width": 1
+      }
+    },
+    {
+      "id": "Airport_symbol",
+      "type": "symbol",
+      "source": "airport",
+      "minzoom": 9,
+      "maxzoom": 24,
+      "layout": {
+        "text-optional": true,
+        "text-line-height": 1,
+        "text-field": {"stops": [[6, ""], [12, "{name}"]]},
+        "text-anchor": "top",
+        "text-size": {"stops": [[13, 10], [17, 12]]},
+        "text-allow-overlap": true,
+        "icon-size": {"stops": [[6, 0.3], [16, 1]]},
+        "icon-image": "airport_15",
+        "text-font": ["OpenSansBold"],
+        "icon-padding": 50,
+        "text-max-width": 5,
+        "text-offset": [0, 1],
+        "text-padding": 0
+      },
+      "paint": {
+        "text-halo-color": "rgba(194, 194, 204, 1)",
+        "text-color": "rgba(182, 0, 183, 1)",
+        "text-halo-width": 0.5
       }
     },
     {
