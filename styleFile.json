@@ -885,7 +885,7 @@
       "minzoom": 16,
       "filter": [
         "all",
-        ["in", "class", "university", "kindergarten"],
+        ["in", "class", "school", "university", "kindergarten", "college"],
         ["==", "$type", "Point"]
       ],
       "layout": {
