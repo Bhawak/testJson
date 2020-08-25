@@ -859,7 +859,7 @@
       "layout": {
         "icon-allow-overlap": false,
         "text-optional": false,
-        "visibility": "none",
+        "visibility": "visible",
         "text-field": "{name:latin}{name:nonlatin}",
         "text-size": {"stops": [[16, 9], [17, 13]]},
         "symbol-placement": "point",
@@ -876,7 +876,7 @@
       "paint": {"text-color": "rgba(38, 63, 17, 1)", "text-halo-width": 0.3}
     },
     {
-      "id": "EduactionLabel_icon",
+      "id": "EduactionLabel-symbol",
       "type": "symbol",
       "source": "qvez6ula1",
       "source-layer": "poi",
@@ -917,7 +917,7 @@
       "layout": {
         "icon-allow-overlap": false,
         "text-optional": false,
-        "visibility": "none",
+        "visibility": "visible",
         "text-field": "{name:latin}{name:nonlatin}",
         "text-size": {"stops": [[16, 11], [17, 13]]},
         "symbol-placement": "point",
