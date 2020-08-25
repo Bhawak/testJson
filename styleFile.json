@@ -894,7 +894,7 @@
         "text-anchor": "top",
         "icon-text-fit": "none",
         "icon-size": {"stops": [[15, 0.8], [17, 1]]},
-        "icon-image": "college_11",
+        "icon-image": "airport_15",
         "icon-ignore-placement": false,
         "icon-optional": false,
         "text-font": ["OpenSans"],
