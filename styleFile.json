@@ -853,7 +853,7 @@
       "minzoom": 16,
       "filter": [
         "all",
-        ["in", "class", "school", "university", "kindergarten", "college"],
+        ["in", "class", "university", "kindergarten"],
         ["==", "$type", "Point"]
       ],
       "layout": {
@@ -886,7 +886,7 @@
         "icon-rotation-alignment": "auto",
         "icon-allow-overlap": true,
         "text-line-height": 1,
-        "visibility": "none",
+        "visibility": "visible",
         "text-field": {
           "stops": [[15, ""], [16, "{name:latin}{name:nonlatin}"]]
         },
