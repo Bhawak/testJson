@@ -28,7 +28,7 @@
     },
     "qvez6ula1": {
       "tiles": [
-        "https://api.baato.io/api/v1/maps/{z}/{x}/{y}.pbf?key=bpk.TqpOIK5KflKR_zEI0ONEVdCZmwmfMye9i67nAjsGlMgQ"
+        "https://api-staging.baato.io/api/v1/maps/{z}/{x}/{y}.pbf?key=bpk.5LRRVuvKxitXLd2sfvtKoHZRMGeExkFeW8AYaIc6ShAJ"
       ],
       "maxZoom": 14,
       "maxzoom": 14,
@@ -44,16 +44,20 @@
       "type": "geojson"
     },
     "ebk000737": {
-      "data": "https://tileboundaries.baato.io/admin_boundary/NepalBoundaries.json",
+      "data": "https://tileboundaries.baato.io/admin_boundary/AdminCenters.json",
       "type": "geojson"
     },
     "airport": {
-      "data": "https://tileboundaries.baato.io/admin_boundary/Airport.json",
-      "type": "geojson"
+      "type": "geojson",
+      "data": "https://tileboundaries.baato.io/admin_boundary/Airport.json"
+    },
+    "admin_center": {
+      "type": "geojson",
+      "data": "https://tileboundaries.baato.io/admin_boundary/NepalBoundaries.json"
     }
   },
   "sprite": "https://drklrd.github.io/map-sprites/sprites/map-icons",
-  "glyphs": "https://api.baato.io/fonts/{fontstack}/{range}.pbf",
+  "glyphs": "https://api-staging.baato.io/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "background",
@@ -134,7 +138,7 @@
       "minzoom": 4,
       "maxzoom": 20,
       "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "rgba(115, 179, 104, 1)"}
+      "paint": {"fill-color": "rgba(131, 187, 123, 1)"}
     },
     {
       "id": "Landuse-farmland",
@@ -177,7 +181,7 @@
       "minzoom": 8,
       "filter": ["any", ["==", "subclass", "forest"], ["==", "class", "wood"]],
       "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "rgba(115, 179, 104, 1)"}
+      "paint": {"fill-color": "rgba(131, 187, 123, 1)"}
     },
     {
       "id": "Landuse-glacier",
@@ -210,7 +214,7 @@
       "minzoom": 10,
       "filter": ["all", ["==", "$type", "Polygon"], ["!=", "class", "river"]],
       "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "rgba(80, 138, 211, 1)"}
+      "paint": {"fill-color": "rgba(108, 149, 215, 1)"}
     },
     {
       "id": "Waterway-riverbank",
@@ -537,13 +541,13 @@
       "maxzoom": 24,
       "layout": {"visibility": "visible"},
       "paint": {
-        "line-width": {"stops": [[14, 2], [15, 3]]},
         "line-color": {
           "stops": [
             [13, "rgba(224, 215, 215, 1)"],
             [17, "rgba(248, 245, 245, 1)"]
           ]
-        }
+        },
+        "line-width": {"stops": [[14, 2], [15, 3]]}
       }
     },
     {
@@ -833,127 +837,16 @@
       "type": "symbol",
       "source": "qvez6ula1",
       "source-layer": "water_name",
-      "minzoom": 14,
+      "minzoom": 15,
       "layout": {
-        "text-line-height": 1,
+        "text-field": "{name:latin}{name:non-latin}",
+        "text-font": ["OpenSans"],
         "visibility": "visible",
         "text-max-width": 5,
-        "text-field": "{name:latin}{name:non-latin}",
-        "text-size": {"stops": [[14, 12], [18, 18]]},
-        "text-font": ["OpenSans"]
-      },
-      "paint": {"text-color": "rgba(18, 0, 255, 1)"}
-    },
-    {
-      "id": "EduactionLabel-symbol",
-      "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "poi",
-      "minzoom": 15,
-      "filter": ["all", ["in", "class", "college", "school"]],
-      "layout": {
-        "icon-allow-overlap": false,
         "text-line-height": 1,
-        "visibility": "visible",
-        "text-max-width": 7,
-        "text-field": {"stops": [[6, ""], [15, "{name:latin}{name:nonlatin}"]]},
-        "text-offset": [0, 0.6],
-        "text-size": {"stops": [[15, 10], [17, 15]]},
-        "text-anchor": "top",
-        "text-ignore-placement": true,
-        "icon-size": {"stops": [[15, 0.6], [17, 1]]},
-        "icon-image": "college_11",
-        "text-font": ["OpenSansRegular"]
+        "text-size": {"stops": [[16, 12], [18, 18]]}
       },
-      "paint": {
-        "text-halo-blur": 0.6,
-        "text-color": "rgba(22, 12, 0, 1)",
-        "text-halo-width": 0.1
-      }
-    },
-    {
-      "id": "EduactionLabel-label",
-      "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "poi",
-      "minzoom": 16,
-      "filter": [
-        "all",
-        ["in", "class", "school", "university", "kindergarten", "college"],
-        ["==", "$type", "Point"]
-      ],
-      "layout": {
-        "icon-allow-overlap": false,
-        "text-optional": false,
-        "visibility": "none",
-        "text-field": "{name:latin}{name:nonlatin}",
-        "text-size": {"stops": [[16, 9], [17, 13]]},
-        "symbol-placement": "point",
-        "icon-ignore-placement": false,
-        "icon-optional": false,
-        "text-font": ["OpenSans"],
-        "symbol-avoid-edges": true,
-        "text-transform": "none",
-        "text-pitch-alignment": "map",
-        "text-max-width": 6.5,
-        "text-rotation-alignment": "map",
-        "text-ignore-placement": false
-      },
-      "paint": {"text-color": "rgba(38, 63, 17, 1)", "text-halo-width": 0.3}
-    },
-    {
-      "id": "Health_icon-label",
-      "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "poi",
-      "minzoom": 15,
-      "filter": ["all", ["in", "class", "hospital"]],
-      "layout": {
-        "icon-allow-overlap": false,
-        "text-optional": false,
-        "visibility": "none",
-        "text-field": "{name:latin}{name:nonlatin}",
-        "text-size": {"stops": [[16, 11], [17, 13]]},
-        "symbol-placement": "point",
-        "icon-ignore-placement": false,
-        "icon-optional": false,
-        "text-font": ["OpenSans"],
-        "symbol-avoid-edges": true,
-        "text-transform": "none",
-        "text-pitch-alignment": "map",
-        "text-max-width": 7,
-        "text-rotation-alignment": "map",
-        "text-ignore-placement": false,
-        "text-padding": 1
-      },
-      "paint": {"text-color": "rgba(164, 37, 37, 1)", "text-halo-width": 0.3}
-    },
-    {
-      "id": "Health_icon",
-      "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "poi",
-      "minzoom": 13,
-      "filter": ["all", ["==", "class", "hospital"]],
-      "layout": {
-        "icon-allow-overlap": false,
-        "text-line-height": 1,
-        "visibility": "visible",
-        "text-max-width": 7,
-        "text-field": {"stops": [[6, ""], [15, "{name:latin}{name:nonlatin}"]]},
-        "text-offset": [0, 0.6],
-        "text-size": {"stops": [[15, 10], [17, 15]]},
-        "text-anchor": "top",
-        "text-ignore-placement": true,
-        "icon-size": {"stops": [[15, 0.6], [17, 1]]},
-        "icon-image": "{class}_11",
-        "text-font": ["OpenSansRegular"]
-      },
-      "paint": {
-        "text-halo-blur": 0.6,
-        "text-color": "rgba(243, 0, 0, 1)",
-        "text-halo-width": 0.1
-      }
+      "paint": {"text-color": "rgba(24, 101, 209, 1)"}
     },
     {
       "id": "Airport-label",
@@ -1050,8 +943,35 @@
           "fuel",
           "place"
         ],
-        ["!in", "class", "office", "embassy"],
-        ["!in", "class", "landcover"]
+        ["!in", "class", "embassy", "place_of_worship"],
+        ["!in", "class", "landcover", "mall", "butcher"],
+        [
+          "!in",
+          "subclass",
+          "accountant",
+          "administrative",
+          "advertising_agency",
+          "architect",
+          "association",
+          "commercial",
+          "company",
+          "consultancy",
+          "consulting",
+          "diplomatic",
+          "educational_institution",
+          "employment_agency",
+          "foundation",
+          "government",
+          "insurance",
+          "it",
+          "lawyer",
+          "newspaper",
+          "ngo",
+          "political_party",
+          "research",
+          "telecommunication",
+          "travel_agent"
+        ]
       ],
       "layout": {
         "visibility": "visible",
@@ -1060,8 +980,68 @@
         "text-offset": [0, 0.6],
         "text-size": 11,
         "text-anchor": "top",
-        "icon-size": 0.85,
+        "icon-size": 0.7,
         "icon-image": "{class}_15",
+        "text-font": ["OpenSans"]
+      },
+      "paint": {"icon-color": "rgba(230, 19, 19, 1)"}
+    },
+    {
+      "id": "Poi-butcher",
+      "type": "symbol",
+      "source": "qvez6ula1",
+      "source-layer": "poi",
+      "minzoom": 18,
+      "filter": ["all", ["==", "class", "butcher"]],
+      "layout": {
+        "visibility": "visible",
+        "text-max-width": 8,
+        "text-field": {"stops": [[6, ""], [18, "{name:latin}{name:nonlatin}"]]},
+        "text-offset": [0, 0.6],
+        "text-size": 11,
+        "text-anchor": "top",
+        "icon-size": 0.85,
+        "text-font": ["OpenSans"],
+        "icon-image": "{class}_15"
+      },
+      "paint": {"icon-color": "rgba(230, 19, 19, 1)"}
+    },
+    {
+      "id": "Poi-dairy",
+      "type": "symbol",
+      "source": "qvez6ula1",
+      "source-layer": "poi",
+      "minzoom": 18,
+      "filter": ["all", ["==", "class", "dairy"]],
+      "layout": {
+        "visibility": "visible",
+        "text-max-width": 8,
+        "text-field": {"stops": [[6, ""], [18, "{name:latin}{name:nonlatin}"]]},
+        "text-offset": [0, 0.6],
+        "text-size": 11,
+        "text-anchor": "top",
+        "icon-size": 0.85,
+        "text-font": ["OpenSans"],
+        "icon-image": "{class}_15"
+      },
+      "paint": {"icon-color": "rgba(230, 19, 19, 1)"}
+    },
+    {
+      "id": "Poi-religion",
+      "type": "symbol",
+      "source": "qvez6ula1",
+      "source-layer": "poi",
+      "minzoom": 16,
+      "filter": ["all", ["in", "class", "religion"]],
+      "layout": {
+        "visibility": "visible",
+        "text-max-width": 8,
+        "text-field": {"stops": [[6, ""], [18, "{name:latin}{name:nonlatin}"]]},
+        "text-offset": [0, 0.6],
+        "text-size": 11,
+        "text-anchor": "top",
+        "icon-size": 0.7,
+        "icon-image": "{subclass}_15",
         "text-font": ["OpenSans"]
       },
       "paint": {"icon-color": "rgba(230, 19, 19, 1)"}
@@ -1081,8 +1061,8 @@
         "text-size": 13,
         "text-anchor": "top",
         "icon-size": 1,
-        "icon-image": "garden_11",
-        "text-font": ["OpenSans"]
+        "text-font": ["OpenSans"],
+        "icon-image": "garden_11"
       },
       "paint": {"icon-color": "rgba(230, 19, 19, 1)"}
     },
@@ -1101,8 +1081,8 @@
         "text-size": 13,
         "text-anchor": "top",
         "icon-size": {"stops": [[15, 0.5], [17, 1]]},
-        "icon-image": "{class}_15",
-        "text-font": ["OpenSans"]
+        "text-font": ["OpenSans"],
+        "icon-image": "{class}_15"
       },
       "paint": {"icon-color": "rgba(230, 19, 19, 1)"}
     },
@@ -1121,32 +1101,10 @@
         "text-size": 13,
         "text-anchor": "top",
         "icon-size": {"stops": [[15, 0.5], [17, 1]]},
-        "icon-image": "police_15",
-        "text-font": ["OpenSans"]
+        "text-font": ["OpenSans"],
+        "icon-image": "police_15"
       },
       "paint": {"icon-color": "rgba(230, 19, 19, 1)"}
-    },
-    {
-      "id": "Poi-office-other",
-      "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "poi",
-      "minzoom": 17,
-      "filter": ["any", ["==", "class", "building"]],
-      "layout": {
-        "text-line-height": 1,
-        "visibility": "visible",
-        "text-max-width": 7,
-        "text-field": {
-          "stops": [[16, ""], [17, "{name:latin}{name:nonlatin}"]]
-        },
-        "text-offset": [0, 0.6],
-        "text-size": 10,
-        "text-anchor": "top",
-        "icon-size": 0.8,
-        "icon-image": "office_11",
-        "text-font": ["OpenSans"]
-      }
     },
     {
       "id": "Poi-office",
@@ -1154,7 +1112,37 @@
       "source": "qvez6ula1",
       "source-layer": "poi",
       "minzoom": 17,
-      "filter": ["any", ["==", "class", "office"]],
+      "filter": [
+        "any",
+        ["==", "class", "office"],
+        [
+          "in",
+          "subclass",
+          "accountant",
+          "administrative",
+          "advertising_agency",
+          "architect",
+          "association",
+          "commercial",
+          "company",
+          "consultancy",
+          "consulting",
+          "diplomatic",
+          "educational_institution",
+          "employment_agency",
+          "foundation",
+          "government",
+          "insurance",
+          "it",
+          "lawyer",
+          "newspaper",
+          "ngo",
+          "political_party",
+          "research",
+          "telecommunication",
+          "travel_agent"
+        ]
+      ],
       "layout": {
         "text-line-height": 1,
         "visibility": "visible",
@@ -1166,17 +1154,16 @@
         "text-size": 10,
         "text-anchor": "top",
         "icon-size": 0.8,
-        "icon-image": "{class}_11",
-        "text-font": ["OpenSans"]
-      },
-      "paint": {"icon-color": "rgba(230, 19, 19, 1)"}
+        "text-font": ["OpenSans"],
+        "icon-image": "{class}_11"
+      }
     },
     {
       "id": "Poi-Supermarket",
       "type": "symbol",
       "source": "qvez6ula1",
       "source-layer": "poi",
-      "minzoom": 17,
+      "minzoom": 15.5,
       "filter": ["all", ["==", "class", "grocery"], ["==", "$type", "Point"]],
       "layout": {
         "text-line-height": 1,
@@ -1190,17 +1177,18 @@
         "text-anchor": "top",
         "text-allow-overlap": false,
         "icon-image": "{class}_15",
-        "text-font": ["OpenSans"]
+        "text-font": ["OpenSans"],
+        "icon-size": {"stops": [[15, 0.5], [18, 1]]}
       },
       "paint": {"icon-color": "rgba(230, 19, 19, 1)"}
     },
     {
-      "id": "Poi-health",
+      "id": "Poi-Mall",
       "type": "symbol",
       "source": "qvez6ula1",
       "source-layer": "poi",
-      "minzoom": 17,
-      "filter": ["all", ["in", "class", "pharmacy", "clinic"]],
+      "minzoom": 15.5,
+      "filter": ["all", ["==", "class", "mall"]],
       "layout": {
         "text-line-height": 1,
         "visibility": "visible",
@@ -1212,8 +1200,9 @@
         "text-size": {"stops": [[17, 10], [19, 12]]},
         "text-anchor": "top",
         "text-allow-overlap": false,
-        "icon-image": "{class}_15",
-        "text-font": ["OpenSans"]
+        "text-font": ["OpenSans"],
+        "icon-size": 1,
+        "icon-image": "building_15"
       },
       "paint": {"icon-color": "rgba(230, 19, 19, 1)"}
     },
@@ -1222,14 +1211,14 @@
       "type": "symbol",
       "source": "qvez6ula1",
       "source-layer": "poi",
-      "minzoom": 16,
+      "minzoom": 15,
       "filter": ["all", ["in", "class", "embassy"]],
       "layout": {
         "text-line-height": 1,
         "visibility": "visible",
         "text-max-width": 7,
         "text-field": {
-          "stops": [[16, ""], [16.5, "{name:latin}{name:nonlatin}"]]
+          "stops": [[15, ""], [16, "{name:latin}{name:nonlatin}"]]
         },
         "text-offset": [0, 0.6],
         "text-size": 11,
@@ -1242,18 +1231,46 @@
       "paint": {"icon-color": "rgba(230, 19, 19, 1)"}
     },
     {
+      "id": "Poi-health",
+      "type": "symbol",
+      "source": "qvez6ula1",
+      "source-layer": "poi",
+      "minzoom": 16,
+      "filter": ["all", ["in", "class", "pharmacy", "clinic"]],
+      "layout": {
+        "text-line-height": 1,
+        "visibility": "visible",
+        "text-max-width": 7,
+        "text-field": {
+          "stops": [[16, ""], [17, "{name:latin}{name:nonlatin}"]]
+        },
+        "text-offset": [0, 0.6],
+        "text-size": {"stops": [[17, 10], [19, 12]]},
+        "text-anchor": "top",
+        "text-allow-overlap": false,
+        "icon-image": "{class}_11",
+        "text-font": ["OpenSans"],
+        "icon-size": 1,
+        "icon-optional": false,
+        "icon-ignore-placement": false,
+        "icon-allow-overlap": false,
+        "text-optional": false
+      },
+      "paint": {"icon-color": "rgba(230, 19, 19, 1)"}
+    },
+    {
       "id": "Poi-fuel",
       "type": "symbol",
       "source": "qvez6ula1",
       "source-layer": "poi",
-      "minzoom": 17,
+      "minzoom": 15,
       "filter": ["all", ["in", "class", "fuel"]],
       "layout": {
         "text-line-height": 1,
         "visibility": "visible",
         "text-max-width": 8,
         "text-field": {
-          "stops": [[16, ""], [17, "{name:latin}{name:nonlatin}"]]
+          "stops": [[15, ""], [16.5, "{name:latin}{name:nonlatin}"]]
         },
         "text-offset": [0, 0.6],
         "text-size": {"stops": [[17, 10], [19, 12]]},
@@ -1264,6 +1281,39 @@
         "text-font": ["OpenSans"]
       },
       "paint": {"icon-color": "rgba(230, 19, 19, 1)"}
+    },
+    {
+      "id": "Poi-hospital",
+      "type": "symbol",
+      "source": "qvez6ula1",
+      "source-layer": "poi",
+      "minzoom": 13,
+      "filter": ["all", ["==", "class", "hospital"]],
+      "layout": {
+        "icon-allow-overlap": false,
+        "text-line-height": 1,
+        "visibility": "visible",
+        "text-max-width": 7,
+        "text-field": {
+          "stops": [[14, ""], [15, "{name:latin}{name:nonlatin}"]]
+        },
+        "text-offset": [0, 0.6],
+        "text-size": {"stops": [[15, 10], [19, 15]]},
+        "text-anchor": "top",
+        "text-ignore-placement": false,
+        "icon-size": {"stops": [[15, 0.6], [17, 1]]},
+        "icon-image": "{class}_11",
+        "text-font": ["OpenSansRegular"],
+        "icon-pitch-alignment": "viewport",
+        "icon-keep-upright": true,
+        "icon-ignore-placement": false,
+        "text-allow-overlap": false
+      },
+      "paint": {
+        "text-halo-blur": 0.6,
+        "text-color": "rgba(90, 4, 4, 1)",
+        "text-halo-width": 0.1
+      }
     },
     {
       "id": "Poi-atm",
@@ -1294,7 +1344,7 @@
       "type": "symbol",
       "source": "qvez6ula1",
       "source-layer": "poi",
-      "minzoom": 16,
+      "minzoom": 15,
       "filter": ["all", ["in", "class", "police"]],
       "layout": {
         "icon-allow-overlap": {"stops": [[6, false], [10, false]]},
@@ -1302,7 +1352,7 @@
         "visibility": "visible",
         "text-max-width": 8,
         "text-field": {
-          "stops": [[16, ""], [17, "{name:latin}{name:nonlatin}"]]
+          "stops": [[15, ""], [16.5, "{name:latin}{name:nonlatin}"]]
         },
         "text-offset": [0, 0.6],
         "text-size": {"stops": [[17, 10], [19, 12]]},
@@ -1317,7 +1367,7 @@
       "type": "symbol",
       "source": "qvez6ula1",
       "source-layer": "poi",
-      "minzoom": 17,
+      "minzoom": 15,
       "filter": ["all", ["in", "class", "bank"]],
       "layout": {
         "text-optional": false,
@@ -1325,7 +1375,7 @@
         "visibility": "visible",
         "text-max-width": 8,
         "text-field": {
-          "stops": [[16, ""], [17, "{name:latin}{name:nonlatin}"]]
+          "stops": [[15, ""], [16.5, "{name:latin}{name:nonlatin}"]]
         },
         "text-offset": [0, 0.6],
         "text-keep-upright": false,
@@ -1333,16 +1383,86 @@
         "text-anchor": "top",
         "text-allow-overlap": false,
         "icon-image": "{class}_15",
-        "text-font": ["OpenSans"]
+        "text-font": ["OpenSans"],
+        "icon-size": {"stops": [[15, 0.7], [18, 1]]},
+        "icon-ignore-placement": false,
+        "icon-allow-overlap": false,
+        "text-ignore-placement": false,
+        "text-padding": 3
       },
       "paint": {"icon-color": "rgba(230, 19, 19, 1)"}
+    },
+    {
+      "id": "Poi-school-copy",
+      "type": "symbol",
+      "source": "qvez6ula1",
+      "source-layer": "poi",
+      "minzoom": 13,
+      "filter": ["all", ["in", "class", "school", "college"]],
+      "layout": {
+        "icon-allow-overlap": false,
+        "text-line-height": 1,
+        "visibility": "visible",
+        "text-max-width": 6,
+        "text-field": {
+          "stops": [[15, ""], [16, "{name:latin}{name:nonlatin}"]]
+        },
+        "text-offset": [0, 0.6],
+        "text-size": {"stops": [[16, 9], [19, 15]]},
+        "text-anchor": "top",
+        "text-ignore-placement": false,
+        "icon-size": {"stops": [[15, 0.8], [17, 1]]},
+        "icon-image": "college_11",
+        "text-font": ["OpenSansRegular"],
+        "icon-pitch-alignment": "viewport",
+        "icon-keep-upright": true,
+        "icon-ignore-placement": false,
+        "text-allow-overlap": false
+      },
+      "paint": {
+        "text-halo-blur": 0.6,
+        "text-color": "rgba(90, 4, 4, 1)",
+        "text-halo-width": 0.1
+      }
+    },
+    {
+      "id": "Poi-school",
+      "type": "symbol",
+      "source": "qvez6ula1",
+      "source-layer": "poi",
+      "minzoom": 15,
+      "filter": ["all", ["in", "class", "college", "school"]],
+      "layout": {
+        "icon-rotation-alignment": "auto",
+        "icon-allow-overlap": true,
+        "text-line-height": 1,
+        "visibility": "none",
+        "text-field": {
+          "stops": [[15, ""], [16, "{name:latin}{name:nonlatin}"]]
+        },
+        "text-size": {"stops": [[16, 9], [17, 13]]},
+        "text-anchor": "top",
+        "icon-text-fit": "none",
+        "icon-size": {"stops": [[15, 0.8], [17, 1]]},
+        "icon-image": "college_11",
+        "icon-ignore-placement": false,
+        "icon-optional": false,
+        "text-font": ["OpenSans"],
+        "symbol-avoid-edges": true,
+        "text-max-width": 6,
+        "text-offset": [0, 0.6],
+        "icon-offset": [0, -2],
+        "symbol-z-order": "auto",
+        "icon-keep-upright": true
+      },
+      "paint": {"text-color": "rgba(22, 12, 0, 1)"}
     },
     {
       "id": "Waterway-river-label",
       "type": "symbol",
       "source": "qvez6ula1",
       "source-layer": "waterway",
-      "minzoom": 12,
+      "minzoom": 15,
       "filter": [
         "all",
         ["==", "class", "river"],
@@ -1357,6 +1477,33 @@
         "text-font": ["OpenSans"]
       },
       "paint": {"text-color": "rgba(24, 101, 209, 1)"}
+    },
+    {
+      "id": "Airport_symbol",
+      "type": "symbol",
+      "source": "airport",
+      "minzoom": 9,
+      "maxzoom": 24,
+      "layout": {
+        "icon-size": {"stops": [[6, 0.3], [16, 1]]},
+        "icon-image": "airport_15",
+        "icon-padding": 50,
+        "text-allow-overlap": true,
+        "text-optional": true,
+        "text-field": {"stops": [[6, ""], [12, "{name}"]]},
+        "text-font": ["OpenSansBold"],
+        "text-anchor": "top",
+        "text-line-height": 1,
+        "text-size": {"stops": [[13, 10], [17, 12]]},
+        "text-offset": [0, 1],
+        "text-max-width": 5,
+        "text-padding": 0
+      },
+      "paint": {
+        "text-color": "rgba(182, 0, 183, 1)",
+        "text-halo-color": "rgba(194, 194, 204, 1)",
+        "text-halo-width": 0.5
+      }
     },
     {
       "id": "Places-other",
@@ -1387,9 +1534,9 @@
         "text-size": {"stops": [[15, 11], [17, 15]]},
         "text-anchor": "top",
         "text-allow-overlap": false,
-        "text-padding": 5,
         "text-font": ["OpenSansBold"],
-        "icon-padding": 10
+        "icon-padding": 10,
+        "text-padding": 5
       },
       "paint": {
         "text-halo-color": "rgba(255, 255, 255, 1)",
@@ -1409,14 +1556,14 @@
         "text-transform": "none",
         "text-line-height": 1,
         "visibility": "visible",
-        "text-max-width": 8,
         "text-field": "{name:latin}{name:nolatin}",
         "text-size": {"stops": [[11, 9], [13, 13]]},
         "text-anchor": "top",
         "text-allow-overlap": false,
-        "text-padding": 4,
         "text-font": ["OpenSansBold"],
-        "icon-padding": 10
+        "icon-padding": 10,
+        "text-padding": 4,
+        "text-max-width": 8
       },
       "paint": {
         "text-halo-color": "rgba(255, 255, 255, 1)",
@@ -1440,14 +1587,14 @@
         "text-transform": "none",
         "text-line-height": 1,
         "visibility": "visible",
-        "text-max-width": 8,
         "text-field": "{name:latin}{name:nolatin}",
         "text-size": {"stops": [[14, 11], [18, 15]]},
         "text-anchor": "top",
         "text-allow-overlap": false,
-        "text-padding": 5,
         "text-font": ["OpenSansBold"],
-        "icon-padding": 10
+        "icon-padding": 10,
+        "text-padding": 5,
+        "text-max-width": 8
       },
       "paint": {
         "text-halo-color": "rgba(255, 255, 255, 1)",
@@ -1475,41 +1622,14 @@
         "text-size": {"stops": [[14, 11], [17, 15]]},
         "text-anchor": "top",
         "text-allow-overlap": false,
-        "text-padding": 5,
         "text-font": ["OpenSansBold"],
-        "icon-padding": 10
+        "icon-padding": 10,
+        "text-padding": 5
       },
       "paint": {
         "text-halo-color": "rgba(255, 255, 255, 1)",
         "text-halo-blur": 0.5,
         "text-halo-width": 1
-      }
-    },
-    {
-      "id": "Airport_symbol",
-      "type": "symbol",
-      "source": "airport",
-      "minzoom": 9,
-      "maxzoom": 24,
-      "layout": {
-        "text-optional": true,
-        "text-line-height": 1,
-        "text-field": {"stops": [[6, ""], [12, "{name}"]]},
-        "text-anchor": "top",
-        "text-size": {"stops": [[13, 10], [17, 12]]},
-        "text-allow-overlap": true,
-        "icon-size": {"stops": [[6, 0.3], [16, 1]]},
-        "icon-image": "airport_15",
-        "text-font": ["OpenSansBold"],
-        "icon-padding": 50,
-        "text-max-width": 5,
-        "text-offset": [0, 1],
-        "text-padding": 0
-      },
-      "paint": {
-        "text-halo-color": "rgba(194, 194, 204, 1)",
-        "text-color": "rgba(182, 0, 183, 1)",
-        "text-halo-width": 0.5
       }
     },
     {
@@ -1561,20 +1681,26 @@
       }
     },
     {
-      "id": "Oneway",
+      "id": "Places-admin_center",
       "type": "symbol",
-      "source": "qvez6ula1",
-      "source-layer": "transportation",
-      "minzoom": 16,
-      "filter": [
-        "all",
-        ["in", "class", "trunk", "primary", "secondary", "tertiary"],
-        ["==", "oneway", 1]
-      ],
+      "source": "ebk000737",
+      "minzoom": 6,
+      "maxzoom": 8.4,
+      "filter": ["all", ["==", "name", "Kathmandu"]],
       "layout": {
-        "symbol-spacing": 75,
-        "symbol-placement": "line",
-        "icon-image": "{class}_11"
+        "symbol-avoid-edges": true,
+        "text-transform": {"stops": [[6, "uppercase"], [11, "uppercase"]]},
+        "text-optional": false,
+        "visibility": "visible",
+        "text-max-width": 7,
+        "text-field": "{name}",
+        "text-size": {"stops": [[5, 8], [13, 14]]},
+        "text-anchor": "top",
+        "text-font": ["OpenSansBold"]
+      },
+      "paint": {
+        "text-halo-color": "rgba(199, 199, 187, 1)",
+        "text-halo-width": 0.7
       }
     },
     {
@@ -1597,6 +1723,29 @@
         "line-opacity": 1,
         "line-dasharray": [1, 2, 1],
         "line-color": "rgba(57, 55, 55, 1)"
+      }
+    },
+    {
+      "id": "Boundary-Province-label",
+      "type": "symbol",
+      "source": "ebk000737",
+      "minzoom": 5,
+      "maxzoom": 6,
+      "filter": ["all", ["==", "name", ""]],
+      "layout": {
+        "symbol-avoid-edges": true,
+        "text-transform": {"stops": [[6, "uppercase"], [11, "uppercase"]]},
+        "text-optional": false,
+        "visibility": "visible",
+        "text-max-width": 7,
+        "text-field": "{name}",
+        "text-size": {"stops": [[5, 8], [13, 14]]},
+        "text-anchor": "top",
+        "text-font": ["OpenSansBold"]
+      },
+      "paint": {
+        "text-halo-color": "rgba(199, 199, 187, 1)",
+        "text-halo-width": 0.7
       }
     },
     {
