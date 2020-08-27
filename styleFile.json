@@ -28,7 +28,7 @@
     },
     "qvez6ula1": {
       "tiles": [
-        "https://api-staging.baato.io/api/v1/maps/{z}/{x}/{y}.pbf?key=bpk.5LRRVuvKxitXLd2sfvtKoHZRMGeExkFeW8AYaIc6ShAJ"
+        "https://api-staging.baato.io/api/v1/maps/{z}/{x}/{y}.pbf?key=bpk.5LPMRJLhpnZT81QDZo1TiXUeMCEmyuUDrStCCIc6ShAJ"
       ],
       "maxZoom": 14,
       "maxzoom": 14,
